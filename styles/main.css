@@ -1,0 +1,83 @@
+:root{
+--background-color: rgb(93, 255, 93);
+}
+
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.page-container{
+    display: flex;
+    background-color: var(--background-color);
+}
+h1{
+    margin: 0;
+    text-align: center;
+    padding-block: 30px;
+    background-color: rgba(100, 100, 100, .6);
+}
+.task-list{
+    position: relative;
+    flex: 5;
+    width: 100%;
+    background-color: var(--background-color);
+    min-height: calc(100vh - 37px);
+    align-items: right;
+}
+.form{
+    flex: 3;
+    background-color: rgba(100, 100, 100, .6);
+    min-height: calc(100vh -37px);
+    margin-top: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+    border: 3px solid rgba(25, 25, 25, .5);
+}
+.task-form{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+}
+.inputs{
+    width: 90%;
+}
+.inputs > *{
+    margin-block: 5px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    padding-inline: 5px;
+}
+
+.iconImportant{
+    font-size: 24px;
+    color: red;
+    cursor: pointer;
+}
+.iconNotImportant{
+    font-size: 24px;
+    color: gray;
+    cursor: pointer;
+}
+.toggleFormButton{
+    width: 200px;
+    text-align: center;
+    border-radius: 0 0 20px 20px;
+    padding: 10px;
+    background-color: rgb(236, 113, 113);
+}
+.save-button{
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: rgb(50, 50, 50);
+    color: white;
+}

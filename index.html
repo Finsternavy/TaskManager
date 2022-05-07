@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="styles/main.css">
+
+    <title>Task Manager</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to my task manager</h1>
+    </header>
+    <!----------------------Main----------------------------->
+    <main class="page-container">
+        <section class="task-list" id="task-list">
+            <button class="toggleFormButton">Toggle Form Control</button>
+        </section>
+        <section class="form" id="form">
+            <form id="task-form" class="task-form">
+                <h3>Create a New Task</h3>
+                <div class="inputs">
+                    <label id="txtImportant">Important <i id="important" class="iconNotImportant far fa-star"></i></label>
+                </div>
+                <div class="inputs">
+                    <input id="txtName" type="text" placeholder="Task Name">
+                </div>
+                <div class="inputs">
+                    <textarea id="txtDescription" name="task-description" id="task-description" cols="30" rows="5"></textarea>
+                </div>
+                <div class="inputs">
+                    <input id="txtDueDate" type="date" placeholder="Due Date">
+                </div>
+                <div class="inputs">
+                    <input id="txtLocation" type="text" placeholder="Location">
+                </div>
+                <div class="inputs">
+                    <input id="txtInvites" type="text" placeholder="Team Members">
+                </div>
+                <div class="inputs">
+                    <input id="txtColor" type="color">
+                </div>
+                <div class="inputs">
+                    <select id="txtFrequency" name="frequency" id="frequency">
+                        <option value="">Task Frequency</option>
+                        <option value="One-time">One-time</option>
+                        <option value="Daily">Daily</option>
+                        <option value="Weekly">Weekly</option>
+                        <option value="Monthly">Monthly</option>
+                        <option value="Annually">Annually</option>
+                    </select>
+                </div>
+                <div class="inputs">
+                    <select id="txtStatus" name="status" id="status">
+                        <option value="">Task Status</option>
+                        <option value="1">Pending</option>
+                        <option value="2">In Progress</option>
+                        <option value="3">Pause</option>
+                        <option value="4">Completed</option>
+                        <option value="5">Abandoned</option>
+                    </select>
+                </div>
+                
+                <button type="button" id="saveBtn" class="save-button">Save</button>
+            </form>
+        </section>
+    </main>
+    <!----------------------Footer--------------------------->
+    <footer>
+
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>
