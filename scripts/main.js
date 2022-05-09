@@ -1,5 +1,7 @@
 const iconImportant = "iconImportant fas fa-star";
 const iconNotImportant = "iconNotImportant far fa-star";
+const formOpen = "Hide Form";
+const formClosed = "Show Form";
 let iconImportantState = false;
 let formVisible = true;
 
@@ -35,14 +37,19 @@ function saveTask(){
 }
 
 function toggleFormVisible(){
+    let form = $(".form");
+    let button = $(".toggleFormButton");
     if(formVisible){
         
-        $(".form").hide();
+        form.hide();
+        console.log(form.val());
+        button.html(formClosed);
         formVisible = false;
         return;
     }
 
-    $(".form").show();
+    form.show();
+    button.html(formOpen);
     formVisible = true;
 }
 

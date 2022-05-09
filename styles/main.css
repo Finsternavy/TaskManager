@@ -1,5 +1,8 @@
 :root{
---background-color: rgb(93, 255, 93);
+--background-color: rgb(20, 20, 20);
+--main-txt-color: white;
+--accent-txt-color: rgb(255, 145, 0);
+--accent-2-txt-color: rgb(121, 189, 245);
 }
 
 *,
@@ -9,29 +12,48 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+body{
+    background-color: var(--background-color);
+    color: rgb(230, 230, 230);
+}
+.accent{
+    color: var(--accent-txt-color);
+}
+.accent-2{
+    color: var(--accent-2-txt-color);
+}
 .page-container{
     display: flex;
     background-color: var(--background-color);
+    min-height: calc(100vh - 135px);
+}
+header{
+    width: 100%;
+    overflow: hidden;
+    border-radius: auto;
+    margin-top: 10px;
 }
 h1{
-    margin: 0;
     text-align: center;
+    max-width: calc(100vw - 20px);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
     padding-block: 30px;
     background-color: rgba(100, 100, 100, .6);
+    border: 3px solid rgba(25, 25, 25, .5);
+    border-radius: 10px;
 }
 .task-list{
     position: relative;
     flex: 5;
     width: 100%;
     background-color: var(--background-color);
-    min-height: calc(100vh - 37px);
     align-items: right;
 }
 .form{
     flex: 3;
     background-color: rgba(100, 100, 100, .6);
-    min-height: calc(100vh -37px);
     margin-top: 10px;
     margin-right: 10px;
     border-radius: 10px;
@@ -49,14 +71,21 @@ h1{
     width: 90%;
 }
 .inputs > *{
-    margin-block: 5px;
+    margin-block: 10px;
     width: 100%;
+    min-height: 40px;
     border: none;
     border-radius: 10px;
     text-align: center;
     padding-inline: 5px;
+    background-color: rgb(200, 200, 200);
 }
-
+.inputs > *:hover{
+    outline: 3px solid var(--accent-txt-color);
+}
+#txtImportant{
+    margin-block: 10px;
+}
 .iconImportant{
     font-size: 24px;
     color: red;
@@ -69,15 +98,30 @@ h1{
 }
 .toggleFormButton{
     width: 200px;
+    margin-left: 10px;
+    margin-top: 10px;
     text-align: center;
-    border-radius: 0 0 20px 20px;
-    padding: 10px;
-    background-color: rgb(236, 113, 113);
+    border-radius: 10px;
+    padding: 5px;
+    background-color: var(--accent-2-txt-color);
+    color: rgb(50, 50, 50);
+    /* border: 3px solid rgba(25, 25, 25, .5); */
+    outline: 1px solid var(--accent-2-txt-color);
+}
+.toggleFormButton:hover{
+    background-color: var(--accent-txt-color);
 }
 .save-button{
     width: 100px;
     height: 40px;
+    margin-top: 10px;
+    margin-bottom: 20px;
     border-radius: 10px;
     background-color: rgb(50, 50, 50);
     color: white;
+}
+.save-button:hover,
+.save-button:focus{
+    background-color: var(--accent-2-txt-color);
+    color: rgb(20, 20, 20);
 }

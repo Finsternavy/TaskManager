@@ -13,27 +13,27 @@
 </head>
 <body>
     <header>
-        <h1>Welcome to my task manager</h1>
+        <h1><span class="accent">Welcome </span>to my <span class="accent-2">task manager</span></h1>
     </header>
     <!----------------------Main----------------------------->
     <main class="page-container">
         <section class="task-list" id="task-list">
-            <button class="toggleFormButton">Toggle Form Control</button>
+            <button class="toggleFormButton">Hide Form</button>
         </section>
         <section class="form" id="form">
             <form id="task-form" class="task-form">
-                <h3>Create a New Task</h3>
-                <div class="inputs">
+                <h3><span class="accent">Create</span> a <span class="accent-2">New Task</span></h3>
+                <div>
                     <label id="txtImportant">Important <i id="important" class="iconNotImportant far fa-star"></i></label>
                 </div>
                 <div class="inputs">
                     <input id="txtName" type="text" placeholder="Task Name">
                 </div>
                 <div class="inputs">
-                    <textarea id="txtDescription" name="task-description" id="task-description" cols="30" rows="5"></textarea>
+                    <textarea id="txtDescription" name="task-description" id="task-description" cols="30" rows="5" placeholder="Task Description"></textarea>
                 </div>
                 <div class="inputs">
-                    <input id="txtDueDate" type="date" placeholder="Due Date">
+                    <input id="txtDueDate"placeholder="Due Date" onfocus="(this.type='date')" onblur="(this.type='text')">
                 </div>
                 <div class="inputs">
                     <input id="txtLocation" type="text" placeholder="Location">
