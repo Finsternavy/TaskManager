@@ -69,21 +69,33 @@ function getStatusText(status){
 }
 
 function displayTask(task){
+
+    let iconClass = iconNotImportant;
+    if(task.important){
+        iconClass = iconImportant;
+    }
+
     let syntax = `
-    <div class='task-card' style="border: 2px solid ${task.color}">
+    <div class="task-card" style="border: 2px solid ${task.color}">
         <div class="task-title">
+            <label><i class="${iconClass}"></i></label>
             <h4><span class="accent">Task: </span>${task.title}</h4>
         </div>
-        <div class="task-short-info"> 
-            <label><span class="accent"> Important:</span> ${task.important}</label>
-            <label><span class="accent"> Re-occurance:</span> ${getFrequencyText(task.frequency)}</label>
-            <label><span class="accent"> Due:</span> ${task.dueDate}</label>
-            <label><span class="accent"> Location:</span> ${task.taskLocation}</label>
-            <label><span class="accent"> Status: </span>${getStatusText(task.status)}</label>
-        </div>
-        <div class="task-long-info">
-            <label><span class="accent"> Description:</span> ${task.description}</label>
-            <label><span class="accent"> Invites:</span> ${task.invites}</label>
+        <div class="card-info-container">
+            <div class="card-left">
+                <div class="task-long-info">
+                    <label><span class="accent"> Description:</span> ${task.description}</label>
+                    <label><span class="accent"> Invites:</span> ${task.invites}</label>
+                </div>
+            </div>
+            <div class="card-right">
+                <div class="task-short-info"> 
+                    <label><span class="accent"> Re-occurance:</span> ${getFrequencyText(task.frequency)}</label>
+                    <label><span class="accent"> Due:</span> ${task.dueDate}</label>
+                    <label><span class="accent"> Location:</span> ${task.taskLocation}</label>
+                    <label><span class="accent"> Status: </span>${getStatusText(task.status)}</label>
+                </div>
+            </div>
         </div>
     </div>
     `;
