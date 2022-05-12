@@ -9,5 +9,7 @@ class Task{
         this.color = color;
         this.frequency = frequency;
         this.status = status;
+
+        this.name = "Christopher";
     }
 }

@@ -16,6 +16,7 @@
 body{
     color: rgb(230, 230, 230);
     background-image: url("/img/task_bg.jpg");
+    background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
@@ -63,7 +64,41 @@ h1{
 .toggleFormButton:hover{
     background-color: var(--accent-2-txt-color);
 }
-
+.clear-all-tasks-button{
+    flex: 1;
+    text-align: center;
+    border-radius: 0 0 10px 0;
+    padding: 5px;
+    background-color: rgb(200, 200, 200);
+    color: rgb(50, 50, 50);
+    border: 3px solid rgba(25, 25, 25);
+    border-top: none;
+    border-left: none;
+}
+.clear-all-tasks-button:hover{
+    background-color: red;
+    color: rgb(200, 200, 200);
+}
+.task-functions{
+    display: flex;
+    width: calc(100% - 20px);
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.task-remaining{
+    flex: 1;
+    text-align: center;
+    border-radius: 0 0 0 10px ;
+    padding: 5px;
+    background-color: rgb(50, 50, 50);
+    color: rgb(200, 200, 200);
+    border: 3px solid rgba(25, 25, 25);
+    border-top: none;
+}
+.task-count{
+    font-size: 1.5rem;
+    color: var(--accent-2-txt-color);
+}
 .page-container{
     display: flex;
     width: 80%;
@@ -157,13 +192,13 @@ h1{
 }
 .form{
     flex: 3;
-    background-color: rgba(75, 75, 75, .9);
+    background-color: rgba(50, 50, 50, .9);
     margin-right: 10px;
     border-radius: 10px;
     border: 3px solid rgb(25, 25, 25);
     width: 100%;
     position: sticky;
-    top: 151px;
+    top: 155px;
 }
 .task-form{
     display: flex;

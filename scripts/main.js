@@ -6,6 +6,7 @@ const taskWidthFormOpen = "max-width: calc(100% - 285px)";
 const taskWidthFormClosed = "Max-width: calc(100% - 20px";
 let iconImportantState = false;
 let formVisible = true;
+let taskRemaining = 0;
 
 function toggleImportant(){
 
@@ -37,10 +38,22 @@ function saveTask(){
         $("#txtStatus").val(),
     );
 
-    console.log(task);
-    displayTask(task);
-    clearFields();
-    
+    // ajax request for server
+    $.ajax({
+        type: "post",
+        url: "https://fsdiapi.azurewebsites.net/api/tasks/",
+        data: JSON.stringify(task),
+        contentType: "application/json",
+        success: function(response){
+            displayTask(task);
+            clearForm();
+            console.log("Task saved", response);
+            location.reload();
+        },
+        error: function(errorDetails){
+            console.error("Save failed", errorDetails);
+        }
+    });
 }
 
 function getFrequencyText(frequency){
@@ -56,7 +69,6 @@ function getFrequencyText(frequency){
 }
 
 function getStatusText(status){
-    console.log(status);
     switch(status){
         case "1": return "Pending";
         case "2": return "In Progress";
@@ -90,7 +102,7 @@ function displayTask(task){
             </div>
             <div class="card-right">
                 <div class="task-short-info"> 
-                    <label><span class="accent"> Re-occurance:</span> ${getFrequencyText(task.frequency)}</label>
+                    <label><span class="accent"> Recurrence:</span> ${getFrequencyText(task.frequency)}</label>
                     <label><span class="accent"> Due:</span> ${task.dueDate}</label>
                     <label><span class="accent"> Location:</span> ${task.taskLocation}</label>
                     <label><span class="accent"> Status: </span>${getStatusText(task.status)}</label>
@@ -103,9 +115,57 @@ function displayTask(task){
     $("#tasks").append(syntax);
 }
 
-function clearFields(){
-    $(".inputs > * ").val("");
+function fetchTasks(){
+    $.ajax({
+        type: "get",
+        url: "https://fsdiapi.azurewebsites.net/api/tasks",
+        success: function(response){
+            let data = JSON.parse(response); // (decode) from string to obj
+            taskRemaining = 0;
+           
+            // for loop over data
+            for(let i = 0; i < data.length; i++){
+
+                let newTask = data[i];
+
+                // only if its my task
+                if (newTask.name === "Christopher"){
+                    taskRemaining++;
+                    displayTask(newTask);
+                }
+            }
+            $(".task-count").html(taskRemaining);
+            // get every element inside the array
+            // send the element to the display fn
+        },
+        error: function(error){
+            console.log("Error retrieving data", error);
+        }
+    });
 }
+
+function deleteTasks(){
+    // DELETE req    /api/products/clear/<Christopher>
+
+    $.ajax({
+        type: "delete",
+        url: "https://fsdiapi.azurewebsites.net/api/tasks/clear/Christopher",
+        success: function(response){
+            console.log("Successfully cleared", response);
+            location.reload();
+        },
+        error: function(err){
+            console.log(err);
+        }
+    });
+}
+
+function clearForm(){
+    $(".inputs > * ").val("");
+    iconImportantState = true;
+    toggleImportant();
+}
+
 function toggleFormVisible(){
     let form = $(".form");
     let button = $(".toggleFormButton");
@@ -130,7 +190,9 @@ function init(){
     $("#important").click(toggleImportant);
     $(".toggleFormButton").click(toggleFormVisible);
     $("#saveBtn").click(saveTask);
+    $(".clear-all-tasks-button").click(deleteTasks);
     // load data
+    fetchTasks();
 }
 
 window.onload=init;
