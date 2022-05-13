@@ -51,11 +51,12 @@ h1{
     border-top: none;
 }
 .toggleFormButton{
-    min-width: 100%;
+    flex: 1;
+    width: 100%;
     text-align: center;
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 0 0 10px;
     padding: 5px;
-    background-color: var(--accent-txt-color);
+    background-color:rgb(200, 200, 200);
     color: rgb(50, 50, 50);
     border: 3px solid rgba(25, 25, 25);
     border-top: none;
@@ -76,22 +77,23 @@ h1{
     border-left: none;
 }
 .clear-all-tasks-button:hover{
-    background-color: red;
-    color: rgb(200, 200, 200);
+    background-color: var(--accent-2-txt-color);
 }
 .task-functions{
     display: flex;
     width: calc(100% - 20px);
     margin-left: 10px;
     margin-right: 10px;
+    height: 40px;
 }
 .task-remaining{
-    flex: 1;
     text-align: center;
-    border-radius: 0 0 0 10px ;
+    width: 100%;
+    border-radius: 0 0 10px 10px ;
     padding: 5px;
-    background-color: rgb(50, 50, 50);
-    color: rgb(200, 200, 200);
+    padding-top: 0px;
+    background-color: var(--accent-txt-color);
+    color: rgb(50, 50, 50);
     border: 3px solid rgba(25, 25, 25);
     border-top: none;
 }
