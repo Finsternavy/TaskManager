@@ -48,7 +48,7 @@ function saveTask(){
             displayTask(task);
             clearForm();
             console.log("Task saved", response);
-            location.reload();
+            // location.reload();
         },
         error: function(errorDetails){
             console.error("Save failed", errorDetails);
